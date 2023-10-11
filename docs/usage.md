@@ -2,12 +2,12 @@
 
 OSCAR allows the creation of serverless file-processing services based on
 container images. These services require a user-defined script with the
-commands responsible of the processing. The platform automatically mounts a
+commands responsible for the processing. The platform automatically mounts a
 volume on the containers with the
 [FaaS Supervisor](https://github.com/grycap/faas-supervisor) component, which
 is in charge of:
 
-- Downloading the file that invokes the service and make it accessible through
+- Download the file that invokes the service and make it accessible through
     the `INPUT_FILE_PATH` environment variable.
 - Execute the user-defined script.
 - Upload the content of the output folder accessible via the `TMP_OUTPUT_DIR`
@@ -16,7 +16,7 @@ is in charge of:
 You can follow one of the
 [examples](https://github.com/grycap/oscar/tree/master/examples)
 in order to test the OSCAR framework for specific applications. We recommend
-you to start with the
+you start with the
 [plant classification example](https://github.com/grycap/oscar/tree/master/examples/imagemagick)
 detailed below.
 
@@ -26,8 +26,8 @@ there is an example in
 
 ## Login
 
-OSCAR is exposed via a Kubernetes ingress and it is accessible via the
-Kubernetes master node IP. If you deployed it using EC3 you can find the
+OSCAR is exposed via a Kubernetes ingress, and it is accessible via the
+Kubernetes master node IP. If you deployed it using EC3, you can find the
 credentials [here](deploy-ec3.md#default-service-endpoints).
 
 ![login](images/usage/usage-01.png)
@@ -42,7 +42,7 @@ In order to create a new service, you must click on the "DEPLOY NEW SERVICE"
 button and follow the wizard. Remember that a script must be provided for the
 processing of files. This script must use the environment variables
 `INPUT_FILE_PATH` and `TMP_OUTPUT_DIR` to refer to the input file and the
-folder where to save the results respectively:
+folder where to save the results, respectively:
 
 ```
 #!/bin/bash
@@ -60,7 +60,7 @@ variables, specify the resources (RAM and CPUs) and choose the log level of
 the service.
 
 Note that specifying a tag in the container image used can be convenient to
-avoid problems with quotas for certain container registries such as
+avoid problems with quotas for certain container registries, such as
 [Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#what-is-the-download-rate-limit-on-docker-hub).
 This is due to the fact that Kubernetes defaults the
 [`imagePullPolicy`](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)
@@ -173,7 +173,7 @@ button in a service from the main view.
 
 ![logs button](images/usage/usage-15.png)
 
-In this view you can see all the jobs created for a service, as well as their
+In this view, you can see all the jobs created for a service, as well as their
 status ("Pending", "Running", "Succeeded" or "Failed") and their creation,
 start and finish time.
 
@@ -196,7 +196,7 @@ files have been selected).
 
 ![output file](images/usage/usage-18.png)
 
-In the following picture you can see the preview of the resulting file after
+In the following picture, you can see the preview of the resulting file after
 the execution triggered in the previous step.
 
 ![output file preview](images/usage/usage-19.png)
